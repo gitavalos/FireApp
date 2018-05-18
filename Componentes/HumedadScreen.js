@@ -39,7 +39,7 @@ class HumedadScreen extends React.Component {
 
 
   static navigationOptions = {
-    title: 'Humedad (°)',
+    title: 'Historial de Humedad (%)',
   };
 
   render() {

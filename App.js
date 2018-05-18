@@ -2,10 +2,10 @@ import React from 'react';
 import { Button, View, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import  HomeScreen  from './Componentes/HomeScreen';
-import  SplashScreen  from './Componentes/SplashScreen';
 import TemperaturaScreen from './Componentes/TemperaturaScreen';
 import * as firebase from 'firebase';
 import HumedadScreen from './Componentes/HumedadScreen';
+import SplashScreen from './Componentes/SplashScreen';
 
 
 class App extends React.Component{
@@ -39,12 +39,12 @@ const RootStack = StackNavigator(
     Humedad: {
       screen: HumedadScreen,
     },
-    Splash: {
+    Splash:{
       screen: SplashScreen,
     }
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Splash',
   }
 );
 

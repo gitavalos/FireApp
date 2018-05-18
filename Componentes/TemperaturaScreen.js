@@ -40,7 +40,7 @@ class TemperaturaScreen extends React.Component {
 
 
   static navigationOptions = {
-    title: 'Temperatura (°C)',
+    title: 'Historial Temperatura (°C)',
   };
 
   render() {
