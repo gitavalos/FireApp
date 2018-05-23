@@ -13,7 +13,8 @@ const PATTERN = [ 1000, 2000, 3000, 4000] ;
 
 class HomeScreen extends React.Component {
 
-  StartVibrationFunction=()=>{
+
+  StartVibrationFunction= async ()=>{
     // Device Will Vibrate for 10 seconds.
     Vibration.vibrate(DURATION);
   }
@@ -85,9 +86,9 @@ class HomeScreen extends React.Component {
 
           color = "red";
           valor = parseInt(hum);
-          if (valor > 29 && valor < 51 ){
+          if (valor > 29 && valor < 70 ){
             color = "green";
-          }else if(valor > 20 && valor < 60 ){
+          }else if(valor > 20 && valor < 80 ){
             color = "yellow"
           }
 
@@ -143,30 +144,29 @@ class HomeScreen extends React.Component {
 		 var keys = Object.keys(snap);
 		 var k = keys[0];
 		 var fuego = snap[k].fuego;
-         var gas = snap[k].gas;
-      this.setState({Fuego : fuego});
-      this.setState({Gas : gas});      
+     var gas = snap[k].gas;
+      //this.setState({Fuego : fuego});
+      //this.setState({Gas : gas});
+      if(fuego == 1){
+        this.StartSound();
+        this.StartVibrationFunction();		
+          Alert.alert(
+            'Alerta de Fuego!!!!!!!'
+          );		
+        } else if(gas == 1 ){  
+        this.StartSound();
+        this.StartVibrationFunction();	
+          Alert.alert(
+            'Alerta de Gas!!!!!!!'
+          );
+      }      
     }); 
+    
    
   }
 
 
   render() {  
-
-	if(this.state.Fuego == 1){
-		this.StartSound();
-		this.StartVibrationFunction();		
-      Alert.alert(
-        'Alerta de Fuego!!!!!!!'
-      );		
-    } else if(this.state.Gas == 1 ){  
-		this.StartSound();
-		this.StartVibrationFunction();	
-      Alert.alert(
-        'Alerta de Gas!!!!!!!'
-      );
-	}
-
     var list_temperatura = <FlatList       
     data={this.state.lista_temperatura} 
     renderItem={({item, i}) => 
